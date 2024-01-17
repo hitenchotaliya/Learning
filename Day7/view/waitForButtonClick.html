@@ -1,0 +1,30 @@
+<p id="xValue"></p>
+<button id="y">Click me to define x</button>
+<button id="z">x is not defined. Waiting....</button>
+<script>
+//   var x;
+
+  var buttonClickPromise = new Promise((resolve) => {
+    document.getElementById("y").addEventListener("click", function () {
+      x = 10;
+      resolve();
+    });
+  });
+
+  async function waitForButtonClick() {
+    
+    
+
+    if (typeof x === 'undefined') {
+      console.log("x is not defined. Waiting....");
+      await buttonClickPromise;
+    }
+    console.log("Before click: x =", x);
+    // x = x + 1;
+
+    console.log("After click: x =", x);
+    document.getElementById("z").innerText = "x=" + x;
+  }
+
+  waitForButtonClick();
+</script>
