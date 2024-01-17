@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo</title>
+    <style>
+        body{
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            padding: 40px;
+        }
+        .primary-btn:visited{
+            color: gray;
+        }
+        .primary-btn{
+            color: blue;
+        }
+        .primary-btn:hover{
+            color: red;
+        }
+        .primary-btn:active{
+            color: blueviolet;
+            background-color: beige;
+            border: 4px solid gray;
+        }
+
+        /* ul li:first-child{
+            background-color: yellowgreen;
+        } */
+        ul li:first-child:hover{
+            color: red;
+
+            transform: scale(1.5);
+           
+        }
+        /* ul li:last-child{
+            background-color: yellowgreen;
+        }
+        ul li:nth-child(2n){
+            background-color: brown;
+        } */
+       
+
+        li {
+            display: inline-block;
+            margin-right: 10px;
+            /* transition: transform .2s ease-in; */
+            rotate: 10px; 
+        }
+
+        li:hover {
+            /* color: red; */
+            transform: scale(1.5);
+            rotate: 10px;
+        }
+
+        h2::first-letter{
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 100px;
+        }
+        p::first-line{
+            background-color: chartreuse;
+        }
+        ::selection{
+            background-color: rebeccapurple;
+            color: aqua;
+        }
+        .require::after{
+            content: '*';
+            color: red;
+        }
+    </style>
+</head>
+<body>
+   <main>
+    <h2>Good day</h2>
+
+    <form action="">
+        <label class="require" for="">Name:</label>
+        <input type="text">
+    </form>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad nesciunt veniam dolore architecto fuga ratione nihil ullam voluptas deserunt. Sapiente voluptatem magnam dicta neque ipsum quisquam. Consequatur iste velit veritatis!</p>
+    <a class="primary-btn"  href="#">Link</a>
+
+    
+    <ul>
+        <li>😂</li>
+        <li>❤</li>
+        <li>✔</li>
+        <li>🎂</li>
+       
+    </ul>
+
+    <ul>
+        <li>item 2-1</li>
+        <li>item 2-2</li>
+        <li>item 2-3</li>
+        <li>item 2-4</li>
+        <li>item 2-5</li>
+    </ul>
+   </main>
+</body>
+</html>

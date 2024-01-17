@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Press log</title>
+</head>
+<body>
+    <h1>Key press log</h1>
+
+    <script>
+        window.addEventListener('keydown',checkKey);
+
+        function checkKey(event){
+            console.log(event.key);
+        }
+    </script>
+</body>
+</html>

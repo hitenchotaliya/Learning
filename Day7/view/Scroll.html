@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Log</title>
+    <style>
+        body{
+            height: 2000px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll log</h1>
+    <script>
+        // window.addEventListener('scroll',function(){
+        //     console.log("Scrolling..");
+        // })
+
+        //Up or down detect
+        window.addEventListener('wheel',function(){
+            if(event.deltaY < 0){
+                console.log("Scrolling up");
+            }else if(event.deltaY > 0){
+                console.log("Scrolling down");
+            }
+        })
+    </script>
+</body>
+</html>

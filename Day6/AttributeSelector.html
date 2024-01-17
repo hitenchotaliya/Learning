@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute selector</title>
+    <style>
+        img[alt]{
+            border: red solid;
+        }
+        input[type]{
+            border: blue solid;
+        }
+        /* Excactly same */
+        img[title='flag']{
+            border: rebeccapurple solid;
+        }
+        /* Beging with valu:^= */
+        img[alt^=flag]{
+            border: blue solid;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Attribute selector</h1>
+    <img src="./images/f4.jpg" title="flag of country" width="200px" height="200px"  alt="flag">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Doloremque nulla perferendis iste obcaecati placeat.
+        At iste ipsa est alias dicta amet distinctio cupiditate, libero,
+        culpa molestiae sed ullam error illum!</p>
+    <img src="./images/f3.jpg" width="200px" height="200px">
+    <form action="">
+        <label for="name">Name:</label>
+        <input type="text"><br>
+        <label for="name">Email:</label>
+        <input type="text"><br>
+        <label for="name">Password:</label>
+        <input type="text"><br>
+    </form>
+</body>
+
+</html>

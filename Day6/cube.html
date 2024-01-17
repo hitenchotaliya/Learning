@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+   .cube {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateX(0) rotateY(0);
+    animation: rotate-cube 15s infinite linear;
+    
+}
+
+.side {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background-size: cover;
+}
+
+.front.side {
+    background-color: hsl(175deg 100% 70%);
+    transform: translateZ(250px);
+}
+
+.back.side {
+    background-color: hsl(0, 51%, 51%);
+    transform: rotateY(180deg) translateZ(250px);
+}
+
+.right.side {
+    background-color: hsl(260deg 100% 70%);
+    transform: rotateY(90deg) translateZ(250px);
+}
+
+.left.side {
+    background-color: hsl(80deg 100% 70%);
+    transform: rotateY(-90deg) translateZ(250px);
+}
+
+.top.side {
+    background-color: hsl(340deg 100% 70%);
+    transform: rotateX(90deg) translateY(-250px);
+}
+
+.bottom.side {
+    background-color: hsl(20deg 100% 70%);
+    transform: rotateX(-90deg) translateY(250px);
+}
+
+@keyframes rotate-cube {
+    0% { transform: rotateX(0) rotateY(0); }
+    25% { transform: rotateX(0) rotateY(90deg); }
+    50% { transform: rotateX(0) rotateY(180deg); }
+    75% { transform: rotateX(0) rotateY(270deg); }
+    100% { transform: rotateX(0) rotateY(360deg); }
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cube">
+            <div class="front side"></div>
+            <div class="back side"></div>
+            <div class="right side"></div>
+            <div class="left side"></div>
+            <div class="top side"></div>
+            <div class="bottom side"></div>
+        </div>
+    </div>
+</body>
+</html>

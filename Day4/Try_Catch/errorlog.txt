@@ -1,0 +1,2 @@
+Erro: [2] <br> Undefined variable $a, <br>C:\xampp\htdocs\Testing\Day4\error_handling.php,<br>39
+Erro: [2] Undefined variable $a - C:\xampp\htdocs\Testing\Day4\error_handling.php:39

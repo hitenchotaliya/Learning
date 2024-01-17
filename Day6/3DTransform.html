@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .base {
+            width: 350px;
+            height: 250px;
+            background: grey;
+            font-size: 18px;
+            text-align: center;
+            margin: 100px 0 0 100px;
+        }
+
+        #box {
+            width: 350px;
+            height: 250px;
+            background: tomato;
+            transform-origin:left center ;
+            /* transform:perspective(500px) rotateX(10deg);
+            transform:perspective(500px) rotateY(50deg);
+            transform:perspective(500px) rotateZ(20deg); */
+            transform:perspective(500px) rotateY(20deg) translate3d(100px,50px,100px);
+            
+        }
+    </style>
+</head>
+
+<body>
+    <h1>3D Transform</h1>
+    <div class="base">
+        <div id="box">RotateX</div>
+    </div>
+    </div>
+</body>
+
+</html>

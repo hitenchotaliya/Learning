@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transitions</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        #box {
+            width: 150px;
+            height: 150px;
+            background: pink;
+            /* transition-property: width,height,background;
+            transition-duration: 1s,2s; */
+            /* Shorthand */
+            transition: width, height, background 1s, 2s, 3s;
+            transition-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1)(4);
+        }
+
+            #box:hover{
+                width: 200px;
+                height: 200px;
+                background: burlywood;
+            }
+
+        @media only screen and (max-width:960px) {
+            #box {
+                width: 350px;
+                height: 350px;
+                background: black;
+            }
+        }
+        .image{
+            margin-top: 50px;
+            margin-left: 50px;
+            height: 300px;
+            width: 300px;
+            transition: 1s ease-in;
+            
+        }
+        img:hover{
+            color: black ;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Transitions</h1>
+    <div id="box"> </div>
+    <img class="image" src="./images/f2.jpg" alt="">
+</body>
+
+</html>

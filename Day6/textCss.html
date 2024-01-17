@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text CSS3</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {
+            padding: 25px;
+            color: black;
+            font-family: Arial, Helvetica, sans-serif;
+            text-shadow: -3px 3px 5px red;
+            margin: auto;
+            /* text-shadow: -3px 3px 5px red,5px 5px 2px green,2px 2px 3px blue; */
+        }
+
+        @font-face {
+            font-family: GraffitiYouth-Regular;
+            src: url(./font/GraffitiYouth-Regular.otf);
+        }
+
+        h2 {
+            padding: auto;
+            margin: auto;
+            color: green;
+            /* font-style: italic;
+            text-transform: uppercase; */
+            word-spacing: 5px;
+            text-decoration: underline black dotted;
+            font-family: GraffitiYouth-Regular;
+        }
+
+
+        #box {
+            margin-left: 100px;
+            /* margin: auto; */
+            padding: 25px;
+            border: 3px solid green;
+            width: 200px;
+            height: 200px;
+            text-align: left;
+            text-align-last: auto;
+            text-transform: capitalize;
+            text-indent: 20px;
+            word-spacing: 1px;
+            /* letter-spacing: 1px; */
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #box2 {
+            margin-left: 100px;
+            width: 200px;
+            border: 2px solid black;
+            word-wrap: break-word;
+            /* word-break: break-all; */
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        #box3 {
+            width: 200px;
+            border: 2px solid black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* white-space: pre-line; */
+            font-family: 'Bungee Spice', sans-serif;
+
+        }
+
+        #box4 {
+            width: 200px;
+            border: 2px solid black;
+            writing-mode: vertical-lr;
+        }
+
+        #box5 {
+            width: 200px;
+            padding: 10px;
+            border: 10px solid black;
+            box-sizing: border-box;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        #boxshadow {
+            margin-left: 100px;
+            padding: 5px;
+            width: 200px;
+            /* border: 2px solid black; */
+            display: inline-block;
+            vertical-align: top;
+            background-color: pink;
+            box-shadow: -5px -5px 15px 5px palevioletred, -7px -7px 20px 7px black,
+                5px 5px 15px 5px palevioletred, 7px 7px 20px 7px black;
+
+        }
+
+        #box,
+        #box2,
+        #boxshadow {
+            display: inline-block;
+            vertical-align: top;
+            /* Adjust vertical alignment as needed */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Text Shadow</h1>
+    <h2>Text decoration</h2>
+    <div class="container">
+        <p id="box">
+            Text formatting Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio, maiores blanditiis
+            magni,
+            numquam corporis earum amet tenetur totam iure, qui itaque veritatis aperiam natus modi ullam quaerat quos
+            delectus! Ipsam.</p>
+
+        <p id="box2"> Word wrap Lorem ipsum dolorsitmetconsecteturadipisicingelitNonetneque perspiciatis consequatur
+            vitae
+            architecto quod autem cupiditate, quas sunt ratione deleniti aliquam minima vel natus, molestiae voluptatem
+            odio sint?</p>
+
+        <p id="boxshadow">Box Shadow Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque perferendis aperiam
+            est
+            sapiente libero unde cumque esse? Nulla, natus ratione fugit, cupiditate cumque quasi sit ipsum, tenetur
+            nobis deleniti accusantium?</p>
+
+    </div>
+
+    <p id="box3"> using Google font and text overflow Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+        delectus cum ab ad non officia aperiam
+        molestias omnis enim pariatur magni soluta, doloribus, placeat quia eaque explicabo excepturi saepe fugiat.</p>
+    <p id="box5">
+        Box sizing
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora placeat exercitationem non, saepe sit nobis
+        amet animi rerum fuga sequi voluptates nihil repellendus, veritatis quam, velit adipisci fugit veniam suscipit.
+    </p>
+    <p id="box4">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora placeat exercitationem non, saepe sit nobis
+        amet animi rerum fuga sequi voluptates nihil repellendus, veritatis quam, velit adipisci fugit veniam suscipit.
+    </p>
+
+</body>
+
+</html>
