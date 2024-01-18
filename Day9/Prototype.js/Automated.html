@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype JS Automated Requests Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+</head>
+<body>
+
+<div id="autoUpdate">Content will be automatically updated here</div>
+
+<script>
+  document.observe('dom:loaded', function() {
+    // Function to make an AJAX request and update content
+    function makeRequestAndUpdateContent() {
+      new Ajax.Request('https://jsonplaceholder.typicode.com/todos/1', {
+        method: 'get',
+        onSuccess: function(response) {
+          var data = response.responseText.evalJSON();
+
+          // Update the content of the 'autoUpdate' div with the retrieved data
+          $('autoUpdate').update('UserID: ' + data.userId + ', Title: ' + data.title);
+        },
+        onFailure: function() {
+          console.log('AJAX request failed');
+        }
+      });
+    }
+
+    // Make an initial request
+    makeRequestAndUpdateContent();
+
+    // Set up an interval to make requests every 5 seconds (adjust as needed)
+    setInterval(makeRequestAndUpdateContent, 5000);
+  });
+</script>
+
+</body>
+</html>

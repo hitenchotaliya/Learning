@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype JS PeriodicalUpdater Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+</head>
+<body>
+
+<div id="autoUpdate">Content will be automatically updated here</div>
+
+<script>
+  document.observe('dom:loaded', function() {
+    new Ajax.PeriodicalUpdater('autoUpdate', 'https://jsonplaceholder.typicode.com/todos/1', {
+      method: 'get',
+      insertion: Insertion.Top,
+      frequency: 5, // Update every 5 seconds
+      decay: 2,
+      onComplete: function(response) {
+        // Additional logic after each successful update (optional)
+        console.log('Content updated:', response.responseText);
+      },
+      onFailure: function(response) {
+        // Handle failure (optional)
+        console.log('Update failed:', response.status, response.statusText);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
