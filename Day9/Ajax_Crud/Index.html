@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <table id="main" border="0" cellspacing="0">
+        <tr>
+            <td id="header">
+                <h1>PHP With AJAX</h1>
+            </td>
+        </tr>
+        <div id="search-bar">
+            <label>Search</label>
+            <input type="text" id="search" autocomplete="off">
+        </div>
+        <tr>
+            <td id="table-form">
+                <form id="addForm">
+                    First name: <input type="text" id="fname"><br>
+                    Last name: <input type="text" id="lname">
+                    <input type="submit" id="save-button" value="Save">
+                    <div class="Errormsg" style="color: red;"></div>
+                </form>
+            </td>
+            <td id="insert-button">
+                <input type="button" id="load-button" value="Insert Data">
+            </td>
+            <td id="unload">
+                <input type="button" id="close-button" value="Close">
+            </td>
+        </tr>
+        <tr>
+            <td id="table-data">
+            </td>
+        </tr>
+    </table>
+
+    <div id="modal" style="display: none;">
+        <div id="modal-form">
+            <h2>Edit form</h2>
+            <table width="100%" cellpadding="0">
+            </table>
+            <button id="close-btn">Close</button>
+        </div>
+    </div>
+    <div class="Successmsg"></div>
+    <script src="./script.js"></script>
+   
+</body>
+
+</html>
