@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prototype JS AJAX Example</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+</head>
+
+<body>
+
+    <button id="myButton">Make AJAX Request</button>
+
+    <script>
+        document.observe('dom:loaded', function () {
+            $('myButton').observe('click', function () {
+                new Ajax.Request('https://jsonplaceholder.typicode.com/todos/1', {
+                    method: 'get',
+                    parameters: {
+                        userId: 1,
+                        completed: true
+                    },
+                    contentType: 'application/json',
+                    onSuccess: function (response) {
+                        var data = response.responseText.evalJSON();
+                        //above line is used for parsing json data 
+                        // evalJSON() is method provided by Prototype JS ; 
+                        //Alternative
+                        // var data = JSON.parse(response.responseText);
+                        console.log(data);
+
+                        // Display the result on the page
+                        $('result').innerHTML = 'UserID: ' + data.userId + ', Title: ' + data.title;
+                    },
+                    onFailure: function () {
+                        console.log('AJAX request failed');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <div id="result">Result will be displayed here</div>
+
+</body>
+
+</html>

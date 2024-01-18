@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prototype JS Global Responders Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/prototype/1.7.3.0/prototype.js"></script>
+</head>
+<body>
+
+<script>
+  Ajax.Responders.register({
+    onCreate: function() {
+        document.write('AJAX request created');
+      console.log('AJAX request created');
+    },
+    onComplete: function() {
+
+        document.write('AJAX request completed');
+      console.log('AJAX request completed');
+    }
+  });
+
+  new Ajax.Request('https://jsonplaceholder.typicode.com/todos/1', {
+    method: 'get',
+    onSuccess: function(response) {
+      var data = response.responseText.evalJSON();
+      console.log(data);
+    },
+    onFailure: function() {
+      console.log('AJAX request failed');
+    }
+  });
+</script>
+
+</body>
+</html>
