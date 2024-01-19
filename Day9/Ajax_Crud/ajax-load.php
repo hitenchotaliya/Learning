@@ -1,11 +1,20 @@
 <?php
 $conn = mysqli_connect("localhost", "root", "root", "test") or die("Connection failed");
 
+$limit_per_page = 5;
 
-$sql = "SELECT * FROM demo";
+$page = "";
+if(isset($_POST["page_no"])){
+  $page = $_POST["page_no"];
+}else{
+  $page = 1;
+}
 
-$result = mysqli_query($conn, $sql) or die("SQL Failed");
-$output = "";
+$offset = ($page - 1) * $limit_per_page;
+
+$sql = "SELECT * FROM demo LIMIT {$offset},{$limit_per_page}";
+$result = mysqli_query($conn,$sql) or die("Query Unsuccessful.");
+$output= "";
 
 if (mysqli_num_rows($result) > 0) {
     $output = '<table border="1" width="100%" cellspacing="0" cellpadding="10px" >
@@ -28,7 +37,23 @@ if (mysqli_num_rows($result) > 0) {
     }
 
     $output .= "</table>";
-    mysqli_close($conn);
+
+    $sql_total = "SELECT * FROM demo";
+    $records = mysqli_query($conn,$sql_total) or die("Query Unsuccessful.");
+    $total_record = mysqli_num_rows($records);
+    $total_pages = ceil($total_record/$limit_per_page);
+
+    $output .='<div id="pagination">';
+    for($i=1; $i <= $total_pages; $i++){
+        if($i == $page){
+          $class_name = "active";
+        }else{
+          $class_name = "";
+        }
+        $output .= "<a class='{$class_name}' id='{$i}' href=''>{$i}</a>";
+      }
+      $output .='</div>';
+
 
     echo $output;
 } else {

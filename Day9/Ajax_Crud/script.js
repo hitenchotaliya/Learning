@@ -1,21 +1,26 @@
 
 $(document).ready(function () {
-
-
     //Load Data from php
-    function loadTable() {
+    function loadTable(page) {
         $.ajax({
             url: "ajax-load.php",
             type: "POST",
-            // data: {page_no :page },
+            data: {page_no: page},
             success: function (data) {
                 $("#table-data").html(data);
-
             }
         });
     }
 
     loadTable();//Callling function so without click run
+
+    //Pagination Code
+    $(document).on("click","#pagination a",function(e) {
+        e.preventDefault();
+        var page_id = $(this).attr("id");
+  
+        loadTable(page_id);
+      })
 
     //Hidding input form
     function hideInputForm() {
@@ -136,25 +141,19 @@ $(document).ready(function () {
     });
 
     //Live Search
-    $("#search").on("keyup",function(){
-        var search_term =$(this).val();
+    $("#search").on("keyup", function () {
+        var search_term = $(this).val();
 
         $.ajax({
             url: "liveSearch.php",
             type: "POST",
-            data: {search:search_term },
-            success:function(data){
+            data: { search: search_term },
+            success: function (data) {
                 $("#table-data").html(data);
             }
         });
     })
 
-    //  //Pagination Code
-    //  $(document).on("click","#pagination a",function(e) {
-    //     e.preventDefault();
-    //     var page_id = $(this).attr("id");
-  
-    //     loadTable(page_id);
-    //   })
+
 });
 
