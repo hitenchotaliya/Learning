@@ -12,17 +12,19 @@ class Database{
 
     public function __construct()
     {
-      if(!$this->conn){
-        $this->mysqli = new mysqli($this->db_host,$this->db_user,$this->db_pass,$this->db_name);
-        $this->conn = true;
-        if($this->mysqli->connect_errno){
-           array_push($this->result,$this->mysqli->connect_error);
-           return false;
+        if (!$this->conn) {
+            $this->mysqli = new mysqli($this->db_host, $this->db_user, $this->db_pass, $this->db_name);
+            $this->conn = true;
+            if ($this->mysqli->connect_errno) {
+                array_push($this->result, $this->mysqli->connect_error);
+                echo "Connection failed: " . $this->mysqli->connect_error;
+                return false;
+            }
+        } else {
+            return true;
         }
-      }else{
-        return true;
-      }
     }
+    
 
     //Close connection
     public function  __destruct()
@@ -37,29 +39,47 @@ class Database{
         }
     }
 
-    private function  TableExist($TableName) {
+    private function TableExist($TableName)
+    {
         $sql = "SHOW TABLES FROM $this->db_name LIKE '$TableName'";
         $TableInDB = $this->mysqli->query($sql);
-
-        if($TableInDB){
-            if($TableInDB-> num_rows == 1){
+    
+        if ($TableInDB !== false) {
+            if ($TableInDB->num_rows == 1) {
                 return true;
-            }else{
-                array_push($this->result,$TableName. "Table does not exist in database.");
+            } else {
+                array_push($this->result, $TableName . " Table does not exist in database.");
+                return false;
             }
+        } else {
+            // Handle query execution error
+            array_push($this->result, "Error executing query: " . $this->mysqli->error);
+            return false;
         }
     }
+    
     public function Show() {
         
     }
 
     public function Insert($TableName, $Values=array()) {
         if($this->TableExist($TableName)){
+            print_r($Values);
 
-            $sql="INSERT into $TableName() Values ()";
+            $table_columns = implode(',',array_keys($Values));
+            $table_value = implode("','",$Values);
+            $sql="INSERT into $TableName($table_columns) Values ('$table_value')";
+            // echo $sql;
+            if($this->mysqli->query($sql)){
+                array_push($this->result,$this->mysqli->insert_id);
+                return true;
+            }else{
+                array_push($this->result,$this->mysqli->error);
+                return false;
+            }
 
         }else{
-
+            return false;
         }
     }
     
@@ -71,6 +91,5 @@ class Database{
         
     }
 
-    
-
 }
+

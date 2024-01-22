@@ -3,7 +3,7 @@
 abstract class parentClass{
 
     public $name;
-
+    // abstract just have abstract method declaration
     abstract protected function calc($a,$b);
 
 }
