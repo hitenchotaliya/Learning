@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery.fn Methods Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .highlight {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title">jQuery.fn Methods Example</h2>
+
+    <p>Paragraph 1</p>
+
+    <script>
+        // Adding custom methods to jQuery.fn
+        $.fn.changeColor = function (color) {
+            return this.css("color", color);
+        };
+
+        $.fn.appendText = function (text) {
+            return this.append(text);
+        };
+
+        $.fn.toggleClassHighlight = function () {
+            return this.toggleClass("highlight");
+        };
+
+        $.fn.clickAlert = function () {
+            return this.click(function () {
+                alert("Element clicked!");
+            });
+        };
+
+        $.fn.customAnimate = function () {
+            return this.animate({ fontSize: "24px" }, 1000);
+        };
+
+        $.fn.customMethodChain = function () {
+            this.changeColor("blue")
+                .appendText(" - Chained text")
+                .toggleClassHighlight()
+                .clickAlert()
+                .customAnimate();
+            return this;
+        };
+
+        // Usage of custom methods
+        $("p").customMethodChain();
+    </script>
+</body>
+
+</html>

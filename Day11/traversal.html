@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Traversal Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title">jQuery Traversal Example</h2>
+
+    <div id="container">
+        <ul>
+            <li class="selected">Item 1</li>
+            <li>Item 2</li>
+            <li class="selected">Item 3</li>
+        </ul>
+        <p class="inner">Inner paragraph</p>
+        <p>Another paragraph</p>
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Basic Traversal
+            var spanElements = $("#container").find("span");
+
+            var listItems = $("ul").children("li");
+
+            var parentDiv = $("#myParagraph").parent();
+
+            var siblingParagraphs = $(".highlight").siblings();
+
+            // Filtering Traversal
+            var firstParagraph = $("p").first();
+
+            var selectedItems = $("li").filter(".selected");
+
+            var nonSpanElements = $("*").not("span");
+
+            // Traversing Up and Down
+            var closestDiv = $(".inner").closest("div");
+
+            var nextParagraph = $("#firstParagraph").next();
+        });
+    </script>
+</body>
+
+</html>

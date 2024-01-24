@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Get/Set Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title">jQuery Get/Set Example</h2>
+
+    <p>Original Text</p>
+
+    <input type="text" id="inputField" value="Original Value">
+
+    <img id="myImage" src="https://media.istockphoto.com/id/636208094/photo/tropical-jungle.webp?s=2048x2048&w=is&k=20&c=MlaHtCKbmmQAzT5d0Z-Hs8gw_yjzEar-jwMoE85Nzj8=" alt="Original Image">
+
+    <script>
+        $(document).ready(function () {
+            // Getting Information
+            var paragraphText = $("p").text();
+            console.log("Paragraph Text: " + paragraphText);
+
+            var inputValue = $("#inputField").val();
+            console.log("Input Field Value: " + inputValue);
+
+            var srcValue = $("#myImage").attr("src");
+            console.log("Image Source: " + srcValue);
+
+            // Setting Information
+            $("p").text("New Text Content");
+
+            $("#inputField").val("New Value");
+
+            $("#myImage").attr("src", "https://media.istockphoto.com/id/503884248/photo/nepal-jungle.webp?s=2048x2048&w=is&k=20&c=GqO6mPVnOMw11akUDmO1RnfuZOWCkjsNesgyrq1RzVY=");
+
+            // Adding and Removing Class
+            $("p").addClass("highlight");
+
+            setTimeout(function () {
+                $("p").removeClass("highlight");
+            }, 3000); // Remove the highlight class after 2 seconds
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title">This is title</h2>
+    <p>Hello</p>
+    <div class="container">
+
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Iusto beatae harum quibusdam in soluta vitae illum
+            aliquid provident! Laudantium rerum dolorem qui debitis iure corporis, maxime cumque neque ducimus
+            explicabo?</p>
+        <ul>
+            <li>item 1</li>
+            <li>item 2</li>
+            <li>item 3</li>
+        </ul>
+        <p class="highlight">Another para</p>
+    </div>
+    <div class="container">
+        <p>This p is from another div</p>
+    </div>
+
+    <p>Stand alone paragraph</p>
+
+    <script>
+        $(document).ready(function () {
+            $("p").css("color", "blue");
+
+            $('#title').html("Updating title from code");
+
+            $(".highlight").css({ "font-weight": "bold", "background-color": "orange" });
+
+            $("p[class='highlight']").html("update content with class");
+
+            $("ul > li").css("color", "green")
+
+            $("li:first").css({ "font-weight": "bold", "border": "2px solid black" })
+            $("li:last").css("text-decoration", "underline")
+
+            //direct after h2 select
+            $("h2 + p").html("This paragraph comes after an h2.");
+            $("p ~ ul") //Selects every <ul> element that are preceded by a <p> element
+            $("div > p")//Selects all <p> elements where the parent is a <div> element
+
+            // :even and :odd Selectors
+            $("li:even").css("background-color", "lightgray");
+            $("li:odd").css("background-color", "lightblue");
+
+            $("p:not(.highlight)").css("background-color", "pink")
+            $("p:contains('This')").css("color", "red");
+
+            //Selecting Element
+            var mySelection = $("p:contains('This')");
+
+            //Checking that selection has any element or not
+            if(mySelection.length>0){
+                console.log("My selection contain element ");
+            }else{
+                console.log("Empty Selector");
+            }
+
+            //if exist then we change the css
+            mySelection.css("color","yellow")
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Dimensions and Attributes Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+    <h2 id="title">jQuery Dimensions and Attributes Example</h2>
+
+    <p>Original Width: <span id="originalWidth"></span></p>
+
+    <img id="myImage" src="https://media.istockphoto.com/id/503884248/photo/nepal-jungle.webp?s=2048x2048&w=is&k=20&c=GqO6mPVnOMw11akUDmO1RnfuZOWCkjsNesgyrq1RzVY=" alt="Original Image" width="300">
+
+    <script>
+        $(document).ready(function () {
+            // Getting the original width of the image
+            var originalWidth = $("#myImage").width();
+            $("#originalWidth").text(originalWidth + "px");
+            
+            // Changing the width and alt attribute of the image
+            $("#myImage").width(200).fadeOut(5000).fadeIn(5000);
+            $("#myImage").attr("alt", "New alt text");
+        });
+    </script>
+</body>
+
+</html>

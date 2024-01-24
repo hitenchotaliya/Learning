@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery DOM Manipulation Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #destinationDiv {
+            border: 2px solid black;
+            padding: 10px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title">jQuery DOM Manipulation Example</h2>
+
+    <div id="sourceDiv">
+        <p>Paragraph 1</p>
+        <p>Paragraph 2</p>
+        <p>Paragraph 3</p>
+    </div>
+
+    <div id="destinationDiv">
+        <!-- Content will be manipulated here -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            // Moving, Copying, and Removing Elements
+            $("p").appendTo("#destinationDiv");
+
+            // Creating New Elements
+            $("#destinationDiv").prepend("<p>Prepended paragraph</p>");
+
+            // Cloning Elements
+            var clonedParagraph = $("p").clone();
+            $("#destinationDiv").append(clonedParagraph);
+
+            // Removing Elements
+            // $("p").remove();
+        });
+    </script>
+</body>
+
+</html>

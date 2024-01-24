@@ -1,6 +1,6 @@
 <?php
 
-class FatherClass{
+final class FatherClass{
 
     final function Show(){
         echo "This is ParentClass show method"."<br>";

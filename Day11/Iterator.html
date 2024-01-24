@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iterator over Selection</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <h1>Iterator over selection</h1>
+    <ul>
+        <li>Apple</li>
+        <li>Banana</li>
+        <li>Cherry</li>
+        <li>Papaya</li>
+        <li>Orange</li>
+    </ul>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, odio aspernatur veritatis quidem facere esse expedita laudantium voluptas, reprehenderit quae unde! Ea veritatis maiores iste delectus qui id aspernatur esse.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, odio aspernatur veritatis quidem facere esse expedita laudantium voluptas, reprehenderit quae unde! Ea veritatis maiores iste delectus qui id aspernatur esse.</p>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores, odio aspernatur veritatis quidem facere esse expedita laudantium voluptas, reprehenderit quae unde! Ea veritatis maiores iste delectus qui id aspernatur esse.</p>
+    <p></p>
+    <script>
+        $(document).ready(function(){
+            $('li').each(function(){
+                $(this).text("hello");
+            })
+            $("p").each(function (index, element) {
+                console.log("Paragraph " + (index + 1) + ": " + $(element).text());
+            });
+        })
+       
+    </script>
+</body>
+</html>

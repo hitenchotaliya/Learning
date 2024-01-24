@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Operations Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        .highlight {
+            color: red;
+        }
+        .special {
+            background-color: lightyellow;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="title">Jquery Operations Example</h2>
+
+    <div id="container">
+        <p class="">Paragraph 1 </p>
+        <p>Paragraph 2</p>
+        <p class="special">Paragraph 3</p>
+    </div>
+
+    <button id="addParagraph">Add new paragraph</button>
+    <input type="text" id="textInput" placeholder="Type here">
+
+    <script>
+        $(document).ready(function(){
+            $("p").append(" - Appended text")
+
+            $("p:first").addClass("highlight");
+            $("p.special").removeClass("special");
+
+            //click operation
+            $("p:first").html("Dont click me okay.")
+            $("p:first").click(function(){
+                alert("i said no ಠ_ಠ")
+            })
+
+            $("p").animate({"font-size":"24px"},500);
+
+             // Manipulating Attributes
+             $("img").attr("src", "newimage.jpg");
+
+             $("#addParagraph").click(function(){
+                var UserText = $("#textInput").val();
+
+                $("#container").append("<br>",UserText);
+             })
+
+        })
+    </script>
+</body>
+
+</html>
