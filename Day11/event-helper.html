@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Helper</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #myCss{
+            width: 200px;
+            height: 100px;
+            background-color: lightgray;
+            margin: 20px;
+            padding:10px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="hover">Hover me</div>
+    <script>
+        $("#hover").hover(function(){
+            $(this).css('background-color','grey');
+            $(this).text("Mouse is inside");
+            console.log("10th event");
+        })
+
+        $("#hover").hover(function(){
+            $(this).css('color','white')
+            console.log("1st event");
+        },
+        function(){
+            $(this).css('color', 'black');
+            $(this).css('background-color', 'lightgray');
+            $(this).text('Mouse is outside');
+            console.log("2nd event");
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>jQuery Utility Methods Example</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>  
+    <h1>jQuery-Utility-Methods</h1>
+
+  <script>
+    // Example data
+    var numbers = [1, 2, 3, 4, 5];
+    var obj1 = { a: 1, b: 2 };
+    var obj2 = { b: 3, c: 4 };
+    var whitespaceString = "  Hello, world!  ";
+
+    // Using $.each() to iterate over an array
+    $.each(numbers, function(index, value) {
+      console.log('Index:', index, 'Value:', value);
+    });
+
+    $.each(numbers,function(index, value){
+        document.write("Index: " ,index, "Value: " ,value)
+        document.write("<br>")
+    })
+
+    // Using $.map() to double each element in an array
+    var doubledNumbers = $.map(numbers, function(value) {
+      return value * 2;
+    });
+    console.log('Doubled Numbers:', doubledNumbers);
+
+    // Using $.grep() to filter even numbers in an array
+    var evenNumbers = $.grep(numbers, function(value) {
+      return value % 2 === 0;
+    });
+    console.log('Even Numbers:', evenNumbers);
+
+    // Using $.extend() to merge two objects
+    var mergedObject = $.extend(obj1, obj2);
+    console.log('Merged Object:', mergedObject);
+
+    // Using $.trim() to remove whitespace from a string
+    var trimmedString = $.trim(whitespaceString);
+    console.log('Trimmed String:', trimmedString);
+
+    // Using $.isArray() to check if an object is an array
+    var isArray = $.isArray(numbers);
+    console.log('Is Array:', isArray);
+  </script>
+
+</body>
+</html>

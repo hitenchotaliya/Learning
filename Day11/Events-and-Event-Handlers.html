@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Time Event Example</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        button {
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="myButton">Click me (once)</button>
+    <button>display event.namespace</button>
+    <p></p>
+    <script>
+
+        $("p").on("click.hello", function (event) {
+            alert(event.namespace);
+        });
+        $("button").on("click", function (event) {
+            $("p").trigger("click.hello");
+        });
+
+
+
+        // var buttonClick = false;
+
+        // // Function to handle the click event
+        // function handleClick() {
+        //     alert("button clicked");
+        //     buttonClick = true;
+        // }
+
+        // // Attach the click event using .one()
+        // $("#myButton").one("click", handleClick);
+
+        // // Check the buttonClick variable after a delay
+        // setTimeout(function () {
+        //     if (buttonClick) {
+        //         console.log("Button has been clicked!");
+        //     } else {
+        //         $("#myButton").off("click", handleClick);
+        //         alert("After 5 seconds, click handler is removed.");
+        //     }
+        // }, 5000);
+
+
+
+    </script>
+
+</body>
+
+</html>

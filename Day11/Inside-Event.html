@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inside Event Handling Function Example</title>
+  <!-- Include jQuery library -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    button {
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+    <p>Click on any of the squares to see the result:</p>
+    
+
+    <div>One
+        <p>Click one any of the squares to see the result:</p>
+        <p>Click two any of the squares to see the result:</p>
+        <p>Click three any of the squares to see the result:</p>
+    </div>
+    <div>Two</div>
+    <div>Three</div>
+  <button id="myButton">Click me</button>
+
+  <script>
+
+// using "this" we can return specific tag.
+// remove "p" and you can see for div
+$(document).ready(function() {
+      $("div p").click(function(){
+         alert($(this).text());
+      });
+   });
+
+
+    // Function to handle the click event
+    function handleClick(event) {
+      // Access the event object
+      console.log("Event type:", event.type);
+      console.log("Target element:", event.target);
+      console.log("Mouse coordinates:", "X: " + event.clientX + ", Y: " + event.clientY);
+
+      // Your custom actions based on the event
+      alert("Button clicked!");
+    }
+
+    // Attach the click event to the button element
+    $("#myButton").on("click", handleClick);
+  </script>
+
+</body>
+</html>

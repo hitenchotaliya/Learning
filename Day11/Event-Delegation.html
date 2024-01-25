@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Delegation and Removal</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+
+    <button id="addNewItem">Add New Item</button>
+
+    <script>
+        // Event delegation for the click event on list items
+        $("#myList").on("click", "li", function () {
+            alert("Item clicked: " + $(this).text());
+        });
+
+        // Event handler for adding a new item
+        $("#addNewItem").on("click", function () {
+            // Add a new item dynamically
+            $("#myList").append("<li>New Item</li>");
+        });
+
+    </script>
+</body>
+
+</html>

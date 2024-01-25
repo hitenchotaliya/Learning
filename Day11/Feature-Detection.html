@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Feature Detection Example</title>
+    <!-- Include jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <div id="myElement">Click me</div>
+
+    <script>
+        // Storing data using .data()
+        $('#myElement').data('key', 'This is some data');
+
+        // Retrieving data using .data()
+        var retrievedData = $('#myElement').data('key');
+        console.log('Retrieved Data:', retrievedData);
+
+        // Storing multiple data using .data()
+        $('#myElement').data('key1', 'Value 1');
+        $('#myElement').data('key2', 'Value 2');
+        $('#myElement').data('key3', 'Value 3');
+
+        // Retrieving all data using .data() without specifying a key
+        var allData = $('#myElement').data();
+
+        //Specific data by key
+        var Val = $("#myElement").data("key1");
+        console.log( "Val is :",Val);
+
+        // Logging all data to the console
+        console.log('All Data:', allData);
+
+    </script>
+
+    </script>
+
+</body>
+
+</html>

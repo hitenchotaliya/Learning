@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle class</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Toggle class</h1>
+    <ul id="hide">
+        <li>Home</li>
+        <li>Insert</li>
+        <li>Update</li>
+        <li>Delete</li>
+        <li>Search</li>
+    </ul>
+    <button id="btn">Toggle list</button>
+    <script>
+        $(document).ready(function(){
+            $("#btn").on("click", function(){
+                // Toggle the 'hide' class on each <li> element within the <ul>
+                $("#hide li").toggleClass("hide");
+            });
+        });
+    </script>
+</body>
+</html>

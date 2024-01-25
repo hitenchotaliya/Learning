@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trigger Event</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+   
+
+    
+  <form action="i.html">
+    <label for="name">Username:</label>
+    <input type="text" id="uname"><br><br>
+    <label for="password">Password:</label>
+    <input type="text" id="pass" type="password"><br><br>
+    <button id="save" value="submit" type="submit">Save</button>
+  </form>
+    <script>
+
+        setTimeout(() => {
+            $("#uname").val("Admin");
+        }, 3000);
+
+        setTimeout(()=>{
+            $("#pass").val("Admin");
+        },4000)
+        
+        setTimeout(()=>{
+            $("#save").trigger("click");
+        },5000)
+       
+
+        // // Event handler for hover effect
+        // $("#fc").hover(function () {
+        //     $("#txt").css("background-color", "red");
+        // })
+
+        // // Simulate hover effect programmatically after a delay
+        // setTimeout(function () {
+        //     $("#fc").trigger("mouseenter");
+        //     console.log("Tiggred");
+        // }, 8000); // Trigger hover after 8 seconds
+    </script>
+</body>
+
+
+</html>
