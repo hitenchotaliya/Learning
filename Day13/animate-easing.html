@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Custom Effect with Easing Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+</head>
+<body>
+
+    <div id="exampleDiv" style="width: 100px; height: 100px; background-color: blue;"></div>
+
+    <button id="runCustomEffectBtn">Run Custom Effect</button>
+
+    <script>
+        // Adding a custom easing function
+        $.easing.customEasing = function (x, t, b, c, d) {
+            return c * ((t = t / d - 1) * t * t + 1) + b;
+        };
+
+        // Defining a custom effect using $.fn.animate()
+        $.fn.customEffect = function () {
+            return this.animate({
+                width: '200px',
+                height: '200px',
+                backgroundColor: 'red'
+            }, {
+                duration: 2000,
+                easing: 'customEasing', // Using the custom easing function
+                complete: function() {
+                    console.log("Custom effect complete!");
+                }
+            });
+        };
+
+        $(document).ready(function() {
+            $('#runCustomEffectBtn').click(function() {
+                // Run the custom effect on the exampleDiv
+                $('#exampleDiv').customEffect();
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Simple Animation Toggle</title>
+  <style>
+    div {
+      width: 50px;
+      height: 30px;
+      margin: 5px;
+      background: green;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+ 
+<button>Toggle Animation</button>
+<div></div>
+ 
+<script>
+$(document).ready(function() {
+  $("button").on("click", function() {
+    // Toggle animation on and off
+    $.fx.off = !$.fx.off;
+
+    // Simple animation to toggle the width of the div
+    $("div").animate({ width: "toggle" });
+  });
+});
+</script>
+ 
+</body>
+</html>
+

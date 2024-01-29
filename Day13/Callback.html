@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Effect Callback Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <div id="exampleDiv">
+        <p>Click the button to see the effect and run code when it's complete.</p>
+    </div>
+
+    <button id="runEffectBtn">Run Effect</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#runEffectBtn').click(function() {
+                // Fade out the element with a callback function
+                $('#exampleDiv').fadeOut(1000, function() {
+                    // Code to run when the fadeOut effect is complete
+                    console.log("Fade Out complete!");
+                    // You can add more code here
+                });
+
+                // You can also add more code here that will run immediately
+                console.log("Fade Out effect started...");
+            });
+        });
+    </script>
+
+</body>
+</html>

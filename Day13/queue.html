@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Queue Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+    <div id="exampleDiv">
+        <p>Click buttons to see queue operations!</p>
+    </div>
+
+    <button id="fadeOutBtn">Fade Out</button>
+    <button id="customFunctionBtn">Custom Function</button>
+    <button id="fadeInBtn">Fade In</button>
+    <button id="slideUpBtn">Slide Up</button>
+    <button id="clearQueueBtn">Clear Queue</button>
+
+    <script>
+        $(document).ready(function() {
+            $('#fadeOutBtn').click(function() {
+                $('#exampleDiv').fadeOut(1000, function() {
+                    console.log("Fade Out complete!");
+                });
+            });
+
+            $('#customFunctionBtn').click(function() {
+                $('#exampleDiv').queue(function(next) {
+                    console.log("Custom function executed!");
+                    next(); // Call next to proceed to the next item in the queue
+                });
+            });
+
+            $('#fadeInBtn').click(function() {
+                $('#exampleDiv').fadeIn(1000, function() {
+                    console.log("Fade In complete!");
+                });
+            });
+
+            $('#slideUpBtn').click(function() {
+                $('#exampleDiv').slideUp(1000, function() {
+                    console.log("Slide Up complete!");
+                });
+            });
+
+            $('#clearQueueBtn').click(function() {
+                $('#exampleDiv').clearQueue();
+                console.log("Queue cleared!");
+            });
+        });
+    </script>
+
+</body>
+</html>

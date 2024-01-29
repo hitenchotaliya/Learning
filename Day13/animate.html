@@ -29,15 +29,38 @@
     <script>
         $(document).ready(function(){
             $("#animateBtn").click(function(){
-                $("#box").animate({
-                    left:'150px',
-                    width:'120px',
-                    height:'200px',
-                    fontSize:'50px',
-                    borderWidth:'5px'
+                //All together  
+                // $("#box").animate({
+                //     left:'150px',
+                //     width:'toggle',
+                //     height:'200px',
+                //     fontSize:'50px',
+                //     borderWidth:'5px'
+                // })
+                //One after another with speed and callback function
+                $("#box").animate({left:'150px'},3000,function(){
+                    console.log("Left Animation is completed");
                 })
+                $("#box").animate({width:'150px'},2000)
+                $("#box").animate({top:'150px'},1000)
             })
         })
+        //just demo
+// Custom effects with .animate()
+$( "div.funtimes" ).animate(
+    {
+        left: "+=50",
+        opacity: 0.25
+    },
+ 
+    // Duration
+    300,
+ 
+    // Callback to invoke when the animation is finished
+    function() {
+        console.log( "done!" );
+    }
+);
     </script>
 </body>
 </html>

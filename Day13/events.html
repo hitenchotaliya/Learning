@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax Events Example</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            // Global event: ajaxStart
+            $(document).ajaxStart(function() {
+                console.log('Global Event: ajaxStart - Ajax request started');
+            });
+
+            // Individual Ajax request with local events
+            $.ajax({
+                url: 'https://jsonplaceholder.typicode.com/posts/1',
+                type: 'GET',
+                dataType: 'json',
+                beforeSend: function(xhr) {
+                    // Local event: beforeSend
+                    console.log('Local Event: beforeSend - Modifying headers or setup');
+                },
+                success: function(data) {
+                    // Local event: success
+                    console.log('Local Event: success - Request successful');
+                    $("#result").text(JSON.stringify(data, null, 2));
+                },
+                error: function(xhr, status, error) {
+                    // Local event: error
+                    console.error('Local Event: error - Ajax request failed:', status, error);
+                },
+                complete: function(xhr, status) {
+                    // Local event: complete
+                    console.log('Local Event: complete - Regardless of success or failure');
+                }
+            });
+
+            // Global event: ajaxStop
+            $(document).ajaxStop(function() {
+                console.log('Global Event: ajaxStop - No more Ajax requests being processed');
+            });
+        });
+    </script>
+
+</body>
+</html>

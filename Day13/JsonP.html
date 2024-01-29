@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jsonp</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+
+    <script>
+        function logResult(json){
+            console.log(json);
+        }
+
+        $.ajax({
+            url:"https://jsonplaceholder.typicode.com/todos?callback=logResult",
+            dataType:"jsonp",
+            jsonpCallback:"logResult"
+        })
+    </script>
+
+
+
+</head>
+<body>
+    <h1>Jsonp Example</h1>
+</body>
+</html>

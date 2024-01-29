@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jsonp working</title>
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+</head>
+<body>
+    <h1>JSONP Example</h1>
+    <div id="result"></div>
+    <script>
+        function handleJsonResponse(data){
+            console.log(data);
+
+            $("#result").text(JSON.stringify(data,null,2));
+        }
+
+        $(document).ready(function(){
+            $.ajax({
+                url:"https://jsonplaceholder.typicode.com/posts/1?callback=handleJsonResponse",
+                dataType:"jsonp",
+                jsonpCallback:"handleJsonResponse",
+                success:function(data){
+                     // This success callback will not be called for JSONP requests.
+                    // Instead, the response will be handled by the callback function (handleJsonpResponse).
+                },
+                error:function(xhr,status,error){
+                    console.error("JSONP request failed:", status, error);
+                }
+            })
+        })
+    </script>
+</body>
+</html>

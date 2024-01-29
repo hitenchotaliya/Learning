@@ -1,0 +1,7 @@
+Today's Learning:-
+	Built-in Effects[WIP]
+		-jQueryfxspeeds
+		-Basic Use of a Built-in Effects
+		-Changing the Duration of Built-in Effects
+	
+
