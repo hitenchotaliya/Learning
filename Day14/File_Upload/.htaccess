@@ -1,0 +1,16 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# Rewrite URLs without .php extension to corresponding .php file
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+# Disable directory listing
+Options -Indexes
+
+## Deny access to specific file types (including PHP files)
+#<FilesMatch "\.(php|php\.)$">
+#    Order allow,deny
+#    Deny from all
+#</FilesMatch>

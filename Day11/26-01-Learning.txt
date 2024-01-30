@@ -1,32 +1,3 @@
 Today's Learning:-
-	Effects
-		Built-in Effects[DONE]
-			-jQueryfxspeeds
-			-Basic Use of a Built-in Effects
-			-Changing the Duration of Built-in Effects
-		Limitations on Effects
-		Queuing of Effects with Other Operations
-		Callbacks - Doing Something When an Effect is Done
-			-Running Code When an Effect is Complete
-		Custom Effects with $fnanimate
-			-Custom effects with $fnanimate
-			-Easing
-		Managing Effects
-		jQueryfxoff
-	Ajax
-		Key Concepts
-			-GET vs POST
-			-The Same Origin Policy
-			-Data Types
-			-A is for Asynchronous
-			-Same-Origin Policy and JSONP
-			-Ajax and Firebug
-		jQuery's Ajax-Related Methods
-			-$ajax
-			-Convenience Methods
-			-$fnload
-		Ajax and Forms
-		Working with JSONP
-		Ajax Events
-	Day-14 PHP Security[WIP]
-
+	
+	

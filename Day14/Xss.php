@@ -9,11 +9,11 @@ foreach ($comments as $comment) {
     echo "<div>{$safeComment}</div>";
 }
 
-function getCommentsFromDatabase() {
+function getCommentsFromDatabase()
+{
     // Simulated function to retrieve comments from the database
     return [
         ['content' => 'This is a safe comment.'],
         ['content' => '<script>alert("Malicious script!");</script>'],
     ];
 }
-?>
